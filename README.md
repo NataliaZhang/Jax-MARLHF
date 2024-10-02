@@ -7,7 +7,7 @@
 </div>
 
 ### Introduction
-This repository contains the code for the experiments described in the paper "Multi-agent Reinforcement Learning from Human Feedback: Data Coverage and Algorithmic Techniques". In this work, we propose a framework and novel methods for Multi-agent Reinforcement Learning from Human Feedback (MARLHF).
+This repository contains the code for the experiments described in the work ["Multi-agent Reinforcement Learning from Human Feedback: Data Coverage and Algorithmic Techniques"](https://arxiv.org/abs/2409.00717). In this work, we propose a framework and novel methods for Multi-agent Reinforcement Learning from Human Feedback (MARLHF).
 
 Our method is evaluated on three tasks—Tag, Spread, and Reference—within the [MPE environment](https://github.com/openai/multiagent-particle-envs). Agents are trained using human feedback in the form of offline reward models and imitation learning.
 
