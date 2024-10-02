@@ -1,0 +1,129 @@
+"DEBUG": False
+"DISABLE_JIT": False
+"SEED": 3
+"ENV_NAME": "MPE_simple_reference_v3"
+# "ENV_NAME": "MPE_simple_spread_v3"
+"ENV_KWARGS": {}
+
+"LR": 1e-3
+"LR_LINEAR_DECAY": False
+"MAX_GRAD_NORM": 25
+"TOTAL_TIMESTEPS": 1e7
+"NUM_STEPS": 130
+"NUM_ENVS": 128
+"NUM_EPOCHS": 100
+"NUM_TEST_ENVS": 128
+"NUM_TEST_STEPS": 130
+"BATCH_SIZE": 128
+"TEST_INTERVAL": 1
+
+"OFFLINE_DATA_PATHS":
+  "MPE_simple_reference_v3":
+    - "data/reference/vdn104/"
+    - "data/reference/vdn149/"
+    - "data/reference/vdn199/"
+    - "data/reference/vdn242/"
+    - "data/reference/vdn298/"
+  "MPE_simple_spread_v3":
+    - "data/spread/vdn149/"
+    - "data/spread/vdn198/"
+    - "data/spread/vdn297/"
+    - "data/spread/vdn348/"
+    - "data/spread/vdn387/"
+  "MPE_simple_spread_v3_na4":
+    - "data/spread/na4/vdn99/"
+    - "data/spread/na4/vdn118/"
+    - "data/spread/na4/vdn136/"
+    - "data/spread/na4/vdn150/"
+    - "data/spread/na4/vdn175/"
+  "MPE_simple_spread_v3_na5":
+    - "data/spread/na5/vdn99/"
+    - "data/spread/na5/vdn117/"
+    - "data/spread/na5/vdn153/"
+    - "data/spread/na5/vdn165/"
+    - "data/spread/na5/vdn184/"
+  "MPE_simple_spread_v3_na6":
+    - "data/spread/na6/vdn137/"
+    - "data/spread/na6/vdn157/"
+    - "data/spread/na6/vdn176/"
+    - "data/spread/na6/vdn190/"
+    - "data/spread/na6/vdn200/"
+  "MPE_simple_spread_v3_na7":
+    - "data/spread/na7/vdn159/"
+    - "data/spread/na7/vdn169/"
+    - "data/spread/na7/vdn177/"
+    - "data/spread/na7/vdn195/"
+    - "data/spread/na7/vdn216/"
+  "MPE_simple_tag_v3":
+    - "data/tag/vdn621/"
+    - "data/tag/vdn525/"
+    - "data/tag/vdn392/"
+    - "data/tag/vdn271/"
+    - "data/tag/vdn187/"
+"OFFLINE_UNILATERAL_DATA_PATHS":
+  "MPE_simple_spread_v3":
+    - "data/spread/vdn149|198unilateral/"
+    - "data/spread/vdn149|297unilateral/"
+    - "data/spread/vdn149unilateral/"
+  "MPE_simple_spread_v3_na4":
+    - "data/spread/na4/vdn99|136unilateral/"
+    - "data/spread/na4/vdn99|150unilateral/"
+    - "data/spread/na4/vdn99|175unilateral/"
+  "MPE_simple_spread_v3_na5":
+    - "data/spread/na5/vdn99|153unilateral/"
+    - "data/spread/na5/vdn99|165unilateral/"
+    - "data/spread/na5/vdn99|184unilateral/"
+  "MPE_simple_spread_v3_na6":
+    - "data/spread/na6/vdn137|176unilateral/"
+    - "data/spread/na6/vdn137|190unilateral/"
+    - "data/spread/na6/vdn137|200unilateral/"
+  "MPE_simple_spread_v3_na7":
+    - "data/spread/na7/vdn159|177unilateral/"
+    - "data/spread/na7/vdn159|195unilateral/"
+    - "data/spread/na7/vdn159|216unilateral/"
+  "MPE_simple_tag_v3":
+    - "data/tag/vdn621|480unilateral/"
+    - "data/tag/vdn621|271unilateral/"
+    - "data/tag/vdn621|187unilateral/"
+  "MPE_simple_reference_v3":
+    - "data/reference/vdn104|149unilateral/" 
+    - "data/reference/vdn104|199unilateral/"
+    - "data/reference/vdn149|199unilateral/"
+
+"NUM_BATCH":
+  - 2 # debug, assign the real number of batches in scripts
+  - 0
+  - 0
+  - 0
+  - 0
+"NUM_UNILATERAL_BATCH":
+  - 1
+  - 1
+  - 1
+"USE_UNILATERAL": False
+
+# reward model filter
+"FILTER_BY_REWARD_MODEL": False
+"FILTER_RATIO": 0.5
+"MSE_LOSS_COEF": 0
+"REWARD_MODEL_TYPE": "FF"
+"RM_HIDDEN_SIZE": 256
+"FF_LAYER_DIM": 256
+"REWARD_NETWORK_PARAM_PATH": "_"
+
+"WANDB_MODE": "online"  # enable this line in training
+"ENTITY": "comm_marl"
+"PROJECT": "IL_spread"
+"PROJECT_PREFIX": ""
+
+# "TEACHER_NETWORK_TYPE": "actor" # output a action distribution pi
+"TEACHER_NETWORK_TYPE": "Qfn" # output qvals of all the valid actions
+"TEACHER_NETWORK_HIDDEN": 64
+"TEACHER_NETWORK_INIT_SCALE": 2. # only used in Qfn
+"TEACHER_NETWORK_PARAM_PATH": "None/MPE_simple_spread_v3/vdn_ps.safetensors"
+
+"STUDENT_NETWORK_HIDDEN": 128
+"STUDENT_NETWORK_SAVE_PATH": "results/spread/IL_configs/student_network"
+
+# VISUALIZATION
+"VIS_SAVE_PATH": "results/vis/IL"

@@ -1,0 +1,67 @@
+"DEBUG": False
+"LR": 1e-3
+"NUM_ENVS": 256
+"NUM_STEPS": 128 # must be 128
+"TOTAL_TIMESTEPS": 2e8
+"MAX_GRAD_NORM": 0.5
+# "ENV_NAME": "MPE_simple_spread_v3"  # "MPE_simple_reference_v3"
+"ENV_NAME": "MPE_simple_reference_v3"
+"SEED": 12
+"ENV_KWARGS": {}
+"DISABLE_JIT": False
+"MSE_LOSS_COEF": 0.1
+
+# WandB Params
+# "WANDB_MODE": "disabled"
+"WANDB_MODE": "online"  # enable this line in training
+"ENTITY": "comm_marl"
+# "PROJECT": "mpe_simple_spread"
+"PROJECT": "mpe_simple_reference"
+"PROJECT_PREFIX": "FromPretrain_xinqi"
+
+# Reward Model Params
+"REWARD_MODEL_TYPE": "RNN" 
+# "REWARD_MODEL_TYPE": "FF"
+"SAVE_REWARD_MODEL_PATH": 'results/mpe_reference/rm_mse_10'
+"RNN_HIDDEN_SIZE": 64 # set the same as FF_LAYER_DIM
+"FF_LAYER_DIM": 64
+"MINIBATCH_SIZE": 256
+"REWARD_MODEL_EPOCHS": 100
+"REWARD_MODEL_LR": 5e-3
+"STEEPNESS": 10
+
+
+"LOAD_FROM_PRETRAIN": True
+"PRETRAIN_MODEL_DIR": '_'
+"PRETRAIN_MODEL_NAME": 'pretrain_reward_model_best.msgpack'
+
+# DataLoader Params
+"DATA_DIR": 
+  - 'data/reference/'
+  # - 'data/mpe/preload_traj_batches/traj_batch_baseline'
+  # - 'data/mpe/preload_traj_batches/traj_batch_random'
+"NUM_BATCH":
+  - 5
+  - 5
+  - 5
+  - 5
+  - 0
+"NUM_UNILATERAL_BATCH":
+  - 1
+  - 1
+  - 1
+"USE_UNILATERAL": False
+"VDN": True
+"CONVERTED": False
+"CONVERTED_DIR": 
+  - 'data/mpe'
+  # - 'data/mpe_reference'
+"CONVERTED_FILELIST": 
+  - "converted_traj_batch/traj_batch_0_20.pkl"
+  - "converted_traj_batch/traj_batch_20_40.pkl"
+  - "converted_random_traj_batch/traj_batch_0_20.pkl"
+  - "converted_random_traj_batch/traj_batch_20_40.pkl"
+  - "converted_mix_traj_batch/traj_batch_0_20.pkl"
+  - "converted_mix_traj_batch/traj_batch_20_40.pkl"
+"TEST_CONVERTED_FILELIST":
+  - "converted_traj_batch/traj_batch_0_3.pkl"

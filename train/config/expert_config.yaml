@@ -1,0 +1,68 @@
+"env":
+  "ENV_NAME": "MPE_simple_tag_v3"
+  "ENV_KWARGS":
+    {}
+    # "num_agents": 3
+    # "num_landmarks": 3
+"alg":
+  "NUM_ENVS": 64
+  "NUM_STEPS": 26
+  "BUFFER_SIZE": 5000
+  "BUFFER_BATCH_SIZE": 32
+  "TOTAL_TIMESTEPS": 1e9 # 6e8
+  "AGENT_HIDDEN_DIM": 64
+  "AGENT_INIT_SCALE": 2.
+  "PARAMETERS_SHARING": True
+  "EPSILON_START": 1.0
+  "EPSILON_FINISH": 0.02 # 0.05
+  "EPSILON_ANNEAL_TIME": 300000
+  "MAX_GRAD_NORM": 25
+  "TARGET_UPDATE_INTERVAL": 200 
+  "LR": 0.005
+  "LR_LINEAR_DECAY": False
+  "EPS_ADAM": 0.001
+  "TD_LAMBDA_LOSS": True
+  "TD_LAMBDA": 0.6
+  "GAMMA": 0.9
+  "VERBOSE": False
+  "WANDB_ONLINE_REPORT": True
+  "NUM_TEST_EPISODES": 32
+  "TEST_INTERVAL": 50000
+  "AVG_RETURN_WINDOW": 5
+  "PRETRAINED_MODEL": null
+  "SAVE_RETURN_THRES":
+    - -220
+    - -200
+    - -180
+    - -170
+    - -160
+    - -150
+    - -140
+    - -130
+    - -120
+    - -110
+    - -100
+    - -90
+    - -80
+    - -70
+    - -60
+    - -50
+    - -40
+    - -35
+    - -30
+    - -25
+    - -23
+    - -20
+    - -18
+    - -15
+    - -10
+    - 0
+  "SAVE_PATH": "model/vdn_expert/"
+  "LOAD_PATH": "_"
+
+"ENTITY": "comm_marl"
+"PROJECT": "vdn_expert"
+"WANDB_MODE": "online"
+# "WANDB_MODE": "disabled"
+"SEED": 0
+"DISABLE_JIT": False

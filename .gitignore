@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.ipynb
+*.DS_Store
+.vscode/
+docker/*
+*.pickle
+results/
+docs/
+tmp/
+*-checkpoint.py
+wandb/
+outputs/
+render/
+*.pkl
+traj_batch_*.txt
+*.zip
