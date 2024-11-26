@@ -1,0 +1,64 @@
+"DEBUG": True
+"LR": 1e-3
+"NUM_ENVS": 16
+"NUM_STEPS": 400 
+"TOTAL_TIMESTEPS": 2e8
+"MAX_GRAD_NORM": 0.5
+"ENV_NAME": "overcooked"
+"NUM_AGENTS": 3
+"NUM_LANDMARKS": 3
+"SEED": 12
+"ENV_KWARGS": 
+  "layout" : "cramped_room"
+"DISABLE_JIT": False
+"MSE_LOSS_COEF": 0.1  # 0.01 best for spread
+
+# WandB Params
+# "WANDB_MODE": "disabled"
+"WANDB_MODE": "online"  # enable this line in training
+"ENTITY": "comm_marl"
+# "PROJECT": "mpe_simple_spread"
+"PROJECT": "mpe_simple_reference"
+"PROJECT_PREFIX": "FromPretrain_xinqi"
+
+# Reward Model Params
+"REWARD_MODEL_TYPE": "RNN" 
+# "REWARD_MODEL_TYPE": "FF"
+"SAVE_REWARD_MODEL_PATH": 'results/overcooked/rm_mse_10'
+"RNN_HIDDEN_SIZE": 64 # set the same as FF_LAYER_DIM
+"FF_LAYER_DIM": 64
+"MINIBATCH_SIZE": 128
+"REWARD_MODEL_EPOCHS": 100
+"REWARD_MODEL_LR": 1e-3
+"STEEPNESS": 10
+
+# DataLoader Params
+"DATA_DIR": 
+  - 'data/overcooked/'
+  # - 'data/mpe/preload_traj_batches/traj_batch_baseline'
+  # - 'data/mpe/preload_traj_batches/traj_batch_random'
+"NUM_BATCH":
+  - 15
+  - 15
+  - 15
+  - 9
+  - 0
+"NUM_UNILATERAL_BATCH":
+  - 3
+  - 3
+  - 0
+"USE_UNILATERAL": True
+"VDN": True
+"CONVERTED": False
+"CONVERTED_DIR": 
+  - 'data/mpe'
+  # - 'data/mpe_reference'
+"CONVERTED_FILELIST": 
+  - "converted_traj_batch/traj_batch_0_20.pkl"
+  - "converted_traj_batch/traj_batch_20_40.pkl"
+  - "converted_random_traj_batch/traj_batch_0_20.pkl"
+  - "converted_random_traj_batch/traj_batch_20_40.pkl"
+  - "converted_mix_traj_batch/traj_batch_0_20.pkl"
+  - "converted_mix_traj_batch/traj_batch_20_40.pkl"
+"TEST_CONVERTED_FILELIST":
+  - "converted_traj_batch/traj_batch_0_3.pkl"

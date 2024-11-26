@@ -1,0 +1,93 @@
+# experiment params
+"NUM_SEEDS": 2
+"SEED": 5
+
+'env':
+  "ENV_NAME": "overcooked"
+  "NUM_AGENTS": 3
+  "NUM_LANDMARKS": 3
+  "ENV_KWARGS": 
+    "layout" : "cramped_room"
+
+'alg':
+  "EPOCHS": 1e4
+  "TOTAL_TIMESTEPS": 5e6
+  "BUFFER_SIZE": 5000
+  "BUFFER_BATCH_SIZE": 32
+  "BATCH_SIZE": 96
+  "AGENT_HIDDEN_DIM": 64
+  "AGENT_INIT_SCALE": 2.
+  "PARAMETERS_SHARING": True
+  "EPSILON": 0.05   # added noise to data collection
+  "EPSILON_START": 1.0
+  "EPSILON_FINISH": 0.05
+  "EPSILON_ANNEAL_TIME": 1e5
+  "MAX_GRAD_NORM": 25
+  "TARGET_UPDATE_INTERVAL": 3 
+  "LR": 0.001
+  "LR_LINEAR_DECAY": False
+  "EPS_ADAM": 0.001
+  "TD_LAMBDA_LOSS": False
+  "TD_LAMBDA": 0.6
+  "GAMMA": 0.9
+  "IQL_TAU": 0.95
+  "VERBOSE": True
+  "MSE_LOSS_COEF": 0.1
+  "OFFLINE_DATA_PATHS":
+    "overcooked":
+      - "data/overcooked/240/"
+      - "data/overcooked/200/"
+      - "data/overcooked/160/"
+      - "data/overcooked/20/"
+      - "data/overcooked/random/"
+  "OFFLINE_UNILATERAL_DATA_PATHS":
+    "overcooked":
+      - "data/overcooked/240|20/"
+      - "data/overcooked/240|200/"
+      - "data/overcooked/240|160/"
+  "NUM_BATCH":
+    - 15
+    - 15
+    - 15
+    - 9
+    - 0
+  "NUM_UNILATERAL_BATCH":
+    - 3
+    - 3
+    - 0
+  "USE_UNILATERAL": True
+
+  # "WANDB_ONLINE_REPORT": True
+  "NUM_TEST_EPISODES": 256
+  "NUM_STEPS": 400
+  "NUM_ENVS": 128
+  "TEST_INTERVAL": 5000
+  # "REWARD_MODEL_TYPE": "FF"
+  "REWARD_MODEL_TYPE": "RNN" # "FF"
+  #"REWARD_NETWORK_PARAM_PATH": "models/reward_model/medium/reference_rmff_mix2|1|1_mse3.msgpack" # path to the reward model
+  # "REWARD_NETWORK_PARAM_PATH": "results/mpe_rm_mse_3/reward_model_best.msgpack"
+  "REWARD_NETWORK_PARAM_PATH": "results/overcooked/unilateral/rm_RNN_64_mse_0.1_vdn_15|15|15|9|0_3|3|0/reward_model_best.msgpack"
+  "REFERENCE_NETWORK_PARAM_PATH": "results/overcooked/IL_configs/student_network/"
+  "SAVE_PATH": "_"  # where to save the model params 
+  "FF_LAYER_DIM": 64
+  "RM_HIDDEN_SIZE": 64
+  "RE_HIDDEN_SIZE": 128
+  "ADD_LOG_PROB": True
+  "REF_LOG_COEF": 10
+
+  "IDIOTIC_AGENT": False
+  "IDIOTIC_AGENT_PATH": "_"
+  "TRAJ_BATCH_PATH": "data/vdn_medium/"
+  "OFFLINE_DATA_PATH":
+    - "data/vdn_expert/"
+    - "data/vdn_medium/"
+  "OFFLINE_DATA_NUMS": [20, 1]
+  "EXPERT_PARAM_PATH": "_"
+
+# wandb params
+"WANDB_MODE": "online"  # enable this line in training
+# "WANDB_MODE": "disabled"
+"ENTITY": "comm_marl"
+"PROJECT": "overcooked_iql"
+"PROJECT_PREFIX": "11202124"
+"DISABLE_JIT": False

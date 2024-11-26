@@ -1,0 +1,31 @@
+"LR": 2.5e-4
+"NUM_ENVS": 16
+"NUM_STEPS": 400
+"TOTAL_TIMESTEPS": 4e6
+"UPDATE_EPOCHS": 4
+"NUM_MINIBATCHES": 4
+"GAMMA": 0.99
+"GAE_LAMBDA": 0.95
+"CLIP_EPS": 0.2
+"ENT_COEF": 0.01
+"VF_COEF": 0.5
+"MAX_GRAD_NORM": 0.5
+"ACTIVATION": "tanh"
+"ENV_NAME": "overcooked"
+"ENV_KWARGS": 
+  "layout" : "cramped_room"
+"ANNEAL_LR": True
+
+# "WANDB_MODE": "online"  # enable this line in training
+"WANDB_MODE": "disabled"  # enable this line in training
+"ENTITY": "comm_marl"
+"PROJECT": "overcooked_mappo"
+"NAME_PREFIX": "mappo_"
+
+
+# hyperparameters for collecting pure dataset
+"EXPERT_PARAM_PATH": "model/overcooked/actorcritic_model_240.0.pkl"
+"DATA_SAVE_PATH": "data/overcooked/240|20"
+# "NEED_IDOT": False
+"IDIOT_PARAM_PATH": "model/overcooked/actorcritic_model_20.0.pkl"
+"COLLECT_EPOCHS": 120

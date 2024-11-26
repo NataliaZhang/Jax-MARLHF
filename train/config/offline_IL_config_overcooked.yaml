@@ -1,0 +1,81 @@
+"DEBUG": False
+"DISABLE_JIT": False
+"SEED": 3
+"ENV_NAME": "overcooked"
+"ENV_KWARGS": 
+  "layout" : "cramped_room"
+"NUM_AGENTS": 3
+"NUM_LANDMARKS": 3
+
+"LR": 1e-3
+"LR_LINEAR_DECAY": False
+"MAX_GRAD_NORM": 25
+"TOTAL_TIMESTEPS": 1e7
+"NUM_STEPS": 130
+"NUM_ENVS": 16
+"NUM_EPOCHS": 100
+"NUM_TEST_ENVS": 128
+"NUM_TEST_STEPS": 400
+"BATCH_SIZE": 32
+"TEST_INTERVAL": 1
+
+"OFFLINE_DATA_PATHS":
+  "MPE_simple_reference_v3":
+    - "data/reference/vdn104/"
+    - "data/reference/vdn149/"
+    - "data/reference/vdn199/"
+    - "data/reference/vdn242/"
+    - "data/reference/vdn298/"
+  "overcooked":
+    - "data/overcooked/240/"
+    - "data/overcooked/200/"
+    - "data/overcooked/160/"
+    - "data/overcooked/20/"
+    - "data/overcooked/random/"
+"OFFLINE_UNILATERAL_DATA_PATHS":
+  "MPE_simple_spread_v3":
+    - "data/spread/vdn149|198unilateral/"
+    - "data/spread/vdn149|297unilateral/"
+    - "data/spread/vdn149unilateral/"
+  "overcooked":
+    - "data/overcooked/240|20/"
+    - "data/overcooked/240|200/"
+    - "data/overcooked/240|160/"
+
+"NUM_BATCH":
+  - 15 # debug, assign the real number of batches in scripts
+  - 15
+  - 15
+  - 9
+  - 0
+"NUM_UNILATERAL_BATCH":
+  - 3
+  - 3
+  - 0
+"USE_UNILATERAL": True
+
+# reward model filter
+"FILTER_BY_REWARD_MODEL": False
+"FILTER_RATIO": 0.5
+"MSE_LOSS_COEF": 0
+"REWARD_MODEL_TYPE": "FF"
+"RM_HIDDEN_SIZE": 256
+"FF_LAYER_DIM": 256
+"REWARD_NETWORK_PARAM_PATH": "_"
+
+"WANDB_MODE": "online"  # enable this line in training
+"ENTITY": "comm_marl"
+"PROJECT": "IL_spread"
+"PROJECT_PREFIX": ""
+
+# "TEACHER_NETWORK_TYPE": "actor" # output a action distribution pi
+"TEACHER_NETWORK_TYPE": "Qfn" # output qvals of all the valid actions
+"TEACHER_NETWORK_HIDDEN": 64
+"TEACHER_NETWORK_INIT_SCALE": 2. # only used in Qfn
+"TEACHER_NETWORK_PARAM_PATH": "None/MPE_simple_spread_v3/vdn_ps.safetensors"
+
+"STUDENT_NETWORK_HIDDEN": 128
+"STUDENT_NETWORK_SAVE_PATH": "results/overcooked/IL_configs/student_network"
+
+# VISUALIZATION
+"VIS_SAVE_PATH": "results/vis/IL"

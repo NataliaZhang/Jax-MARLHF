@@ -7,7 +7,7 @@
 </div>
 
 ### Introduction
-This repository contains the code for the experiments described in the work ["Multi-agent Reinforcement Learning from Human Feedback: Data Coverage and Algorithmic Techniques"](https://arxiv.org/abs/2409.00717). In this work, we propose a framework and novel methods for Multi-agent Reinforcement Learning from Human Feedback (MARLHF).
+This repository contains the code for the experiments described in the work "Preference-Based Multi-agent Reinforcement Learning: Data Coverage and Algorithmic Techniques". In this work, we propose a framework and novel methods for Preference-Based Multi-agent Reinforcement Learning (PbMARL).
 
 Our method is evaluated on three tasks—Tag, Spread, and Reference—within the [MPE environment](https://github.com/openai/multiagent-particle-envs). Agents are trained using human feedback in the form of offline reward models and imitation learning.
 
@@ -36,6 +36,12 @@ bash scripts/collect_vdn.sh
 bash scripts/collect_vdn_unilateral.sh
 ```
 
+For overcooked task, run the following commands:
+```
+bash scripts/collect_overcooked.sh
+```
+This will run the ippo algorithm to collect the trajectories for overcooked.
+
 ### Training
 To train the models, run the following commands:
 ```
@@ -43,9 +49,12 @@ cd MARLHF
 bash scripts/train_all_tag.sh
 bash scripts/train_all_spread.sh
 bash scripts/train_all_reference.sh
+bash scripts/train_all_overcooked.sh
 ```
 
 Before running the training scripts, you may modify the hyperparameters in the scripts or the default hyperparameters in `MARLHF/train/config/` directory. 
 
 The training process includes automatic training of offline reward models, imitation models, and MARLHF agents. 
 The training logs will be stored in the `outputs` and `wandb` directory. 
+
+The default training algorithm is VDN. We also support IQL and BCQ. To change the training algorithm, simply change 'vdn_offline_rm' to 'iql_offline_rm' or 'bcq_offline_rm' in the training scripts.
