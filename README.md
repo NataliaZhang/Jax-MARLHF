@@ -40,7 +40,7 @@ For overcooked task, run the following commands:
 ```
 bash scripts/collect_overcooked.sh
 ```
-This will run the ippo algorithm to collect the trajectories for overcooked.
+This will run the ippo algorithm to collect the trajectories for overcooked environment.
 
 ### Training
 To train the models, run the following commands:
